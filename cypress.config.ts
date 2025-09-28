@@ -4,6 +4,6 @@ export default defineConfig({
   e2e: {
     specPattern: "cypress/e2e/**/*.ts",
     supportFile: "cypress/support/e2e.ts",
-    baseUrl: "http://localhost:5173",
+    baseUrl: "https://cozy-youtiao-11183e.netlify.app/",
   },
 });
