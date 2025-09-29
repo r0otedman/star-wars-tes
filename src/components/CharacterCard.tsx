@@ -45,7 +45,7 @@ export const CharacterCard: React.FC<Props> = ({ character, index }) => {
           <Grid container spacing={2}>
             <Typography variant="h6">{character.name}</Typography>
             {index === 0 && (
-              <GlitchText text="Top Now" size={20} color={COLORS.green} />
+              <GlitchText text="Top Now" size={16} color={COLORS.green} />
             )}
           </Grid>
           <Typography color={COLORS.green} variant="body2">

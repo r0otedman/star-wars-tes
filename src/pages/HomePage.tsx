@@ -47,9 +47,7 @@ export default function HomePage() {
           <Grid
             key={char.url}
             size={
-              index !== 0
-                ? { xs: 12, sm: 6, md: 4 }
-                : { xs: 12, sm: 12, md: 12 }
+              index !== 0 ? { xs: 12, sm: 6, md: 4 } : { xs: 12, sm: 6, md: 12 }
             }
           >
             <CharacterCard index={index} character={char} key={char.url} />
