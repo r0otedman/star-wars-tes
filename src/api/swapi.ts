@@ -1,10 +1,5 @@
-import {
-  createApi,
-  fetchBaseQuery,
-  EndpointBuilder,
-} from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-// ================== Types ==================
 export interface Character {
   name: string;
   height: string;
@@ -31,66 +26,48 @@ export interface CharacterListResponse {
   results: Character[];
 }
 
-export interface Film {
-  title: string;
-  episode_id: number;
-  release_date: string;
-}
-
-export interface Planet {
-  name: string;
-  climate: string;
-  population: string;
-}
-
-// ================== Constants ==================
 const API_URL = "https://swapi.py4e.com/api/";
-const stripBaseUrl = (url: string) => url.replace(API_URL, "");
 
-// ================== API ==================
 export const swapiApi = createApi({
   reducerPath: "swapiApi",
   baseQuery: fetchBaseQuery({ baseUrl: API_URL }),
-  endpoints: (builder) => {
-    const buildNameEndpoint = (
-      b: EndpointBuilder<ReturnType<typeof fetchBaseQuery>, never, "swapiApi">
-    ) =>
-      b.query<{ name: string }, string>({
-        query: (url) => stripBaseUrl(url),
-        keepUnusedDataFor: 300,
-      });
+  endpoints: (builder) => ({
+    getCharacters: builder.query<
+      CharacterListResponse,
+      { page?: number; search?: string }
+    >({
+      query: ({ page = 1, search = "" }) =>
+        `people/?page=${page}${
+          search ? `&search=${encodeURIComponent(search)}` : ""
+        }`,
+    }),
 
-    return {
-      getCharacters: builder.query<
-        CharacterListResponse,
-        { page?: number; search?: string }
-      >({
-        query: ({ page = 1, search = "" }) =>
-          `people/?page=${page}${
-            search ? `&search=${encodeURIComponent(search)}` : ""
-          }`,
-      }),
+    getCharacterById: builder.query<Character, string | number>({
+      query: (id) => `people/${id}/`,
+    }),
 
-      getCharacterById: builder.query<Character, string | number>({
-        query: (id) => `people/${id}/`,
-      }),
+    getFilm: builder.query<{ title: string }, string>({
+      query: (url) => url.replace(API_URL, ""),
+    }),
 
-      getFilm: builder.query<Film, string>({
-        query: (url) => stripBaseUrl(url),
-      }),
+    getPlanet: builder.query<{ name: string }, string>({
+      query: (url) => url.replace(API_URL, ""),
+    }),
 
-      getPlanet: builder.query<Planet, string>({
-        query: (url) => stripBaseUrl(url),
-      }),
+    getSpecies: builder.query<{ name: string }, string>({
+      query: (url) => url.replace(API_URL, ""),
+    }),
 
-      getSpecies: buildNameEndpoint(builder),
-      getStarship: buildNameEndpoint(builder),
-      getVehicle: buildNameEndpoint(builder),
-    };
-  },
+    getStarship: builder.query<{ name: string }, string>({
+      query: (url) => url.replace(API_URL, ""),
+    }),
+
+    getVehicle: builder.query<{ name: string }, string>({
+      query: (url) => url.replace(API_URL, ""),
+    }),
+  }),
 });
 
-// ================== Hooks ==================
 export const {
   useGetCharactersQuery,
   useGetCharacterByIdQuery,
