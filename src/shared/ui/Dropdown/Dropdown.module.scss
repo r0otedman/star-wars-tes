@@ -1,0 +1,23 @@
+.container {
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  border: 0.5px solid #313449;
+  z-index: 1000;
+  right: -2px;
+  top: 36px;
+  white-space: nowrap;
+  border-radius: 4px;
+  opacity: 0;
+  transition: 0.3s;
+  pointer-events: none;
+  background-color: #191f28;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.open {
+  opacity: 1;
+  pointer-events: all;
+}

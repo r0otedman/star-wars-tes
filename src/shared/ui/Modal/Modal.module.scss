@@ -1,0 +1,76 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms linear;
+  z-index: 1000;
+}
+
+.backdropOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Центрированный лист с анимацией похожей на MUI: fade + scale */
+.paper {
+  background: #fff;
+  border-radius: 8px;
+  max-width: 720px;
+  width: calc(100% - 48px);
+  max-height: 90vh;
+  transform: scale(0.95);
+  opacity: 0;
+  transition: transform 220ms cubic-bezier(0.16, 0.84, 0.44, 1),
+    opacity 200ms linear;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.16);
+  will-change: transform, opacity;
+}
+
+/* Когда открыто */
+.paperOpen {
+  transform: scale(1);
+  opacity: 1;
+  transition-delay: 30ms;
+}
+
+/* Для плавного закрытия: уменьшаем opacity раньше чем backdrop исчезнет */
+.paperClosing {
+  transform: scale(0.98);
+  opacity: 0;
+}
+
+/* Внутренние области */
+.header {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content {
+  padding: 16px 20px;
+}
+
+.footer {
+  padding: 12px 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Упрощённый visually-hidden для accessibility */
+.visuallyHidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}

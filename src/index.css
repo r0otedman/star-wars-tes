@@ -4,7 +4,18 @@
   box-sizing: border-box;
 }
 
+li {
+  list-style: none;
+}
+
 body {
   background-color: #15161b;
   color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+.page-wrapper {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }

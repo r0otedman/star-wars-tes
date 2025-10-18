@@ -1,0 +1,20 @@
+.tabs {
+  margin-bottom: 15px;
+}
+.tabsList {
+  display: flex;
+}
+.tabsListItem {
+  margin-left: 10px;
+  font-size: 20px;
+  color: #7e829e;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  &:first-child {
+    margin: 0;
+  }
+}
+.active {
+  color: #fff;
+}

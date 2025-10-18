@@ -1,79 +1,19 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { Token } from "../entities/token/model/types";
 
-export interface Character {
-  name: string;
-  height: string;
-  mass: string;
-  hair_color: string;
-  skin_color: string;
-  eye_color: string;
-  birth_year: string;
-  gender: string;
-  homeworld: string;
-  films: string[];
-  species: string[];
-  vehicles: string[];
-  starships: string[];
-  created: string;
-  edited: string;
-  url: string;
-}
-
-export interface CharacterListResponse {
-  count: number;
-  next: string | null;
-  previous: string | null;
-  results: Character[];
-}
-
-const API_URL = "https://swapi.py4e.com/api/";
+const API_URL = "http://localhost:3000";
 
 export const swapiApi = createApi({
   reducerPath: "swapiApi",
   baseQuery: fetchBaseQuery({ baseUrl: API_URL }),
   endpoints: (builder) => ({
-    getCharacters: builder.query<
-      CharacterListResponse,
-      { page?: number; search?: string }
-    >({
-      query: ({ page = 1, search = "" }) =>
-        `people/?page=${page}${
-          search ? `&search=${encodeURIComponent(search)}` : ""
-        }`,
+    getTokens: builder.query<Token[], void>({
+      query: () => `top-pairs`,
     }),
-
-    getCharacterById: builder.query<Character, string | number>({
-      query: (id) => `people/${id}/`,
-    }),
-
-    getFilm: builder.query<{ title: string }, string>({
-      query: (url) => url.replace(API_URL, ""),
-    }),
-
-    getPlanet: builder.query<{ name: string }, string>({
-      query: (url) => url.replace(API_URL, ""),
-    }),
-
-    getSpecies: builder.query<{ name: string }, string>({
-      query: (url) => url.replace(API_URL, ""),
-    }),
-
-    getStarship: builder.query<{ name: string }, string>({
-      query: (url) => url.replace(API_URL, ""),
-    }),
-
-    getVehicle: builder.query<{ name: string }, string>({
-      query: (url) => url.replace(API_URL, ""),
+    getTokensByMint: builder.query<Token, string>({
+      query: (baseMint: string) => `pair/${baseMint}`,
     }),
   }),
 });
 
-export const {
-  useGetCharactersQuery,
-  useGetCharacterByIdQuery,
-  useGetFilmQuery,
-  useGetPlanetQuery,
-  useGetSpeciesQuery,
-  useGetStarshipQuery,
-  useGetVehicleQuery,
-} = swapiApi;
+export const { useGetTokensQuery, useGetTokensByMintQuery } = swapiApi;
