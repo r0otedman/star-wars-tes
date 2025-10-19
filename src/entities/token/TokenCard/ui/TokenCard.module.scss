@@ -20,15 +20,15 @@
 }
 .tokenCard {
   padding: 15px;
-  background-color: #191f28;
-  border: 0.5px solid #313449;
+  background-color: $bg-color;
+  border: $border;
   border-right: none;
   display: grid;
   column-gap: 24px;
   grid-template-columns: 280px 1fr 1fr;
   cursor: pointer;
   &:hover {
-    background-color: #212832;
+    background-color: $bg-hover;
   }
 }
 
@@ -44,19 +44,20 @@
   font-weight: 400;
   display: flex;
   align-items: center;
+  white-space: nowrap;
 }
 
 .tokenSubtitle {
   margin-left: 10px;
-  color: #7e829e;
+  color: $text-secondary;
   transition: 0.4s;
   &:hover {
-    color: #5fe992;
+    color: $green;
   }
 }
 
 .subText {
-  max-width: 115px;
+  max-width: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -64,7 +65,7 @@
 
 .tokenDescr {
   max-width: 200px;
-  color: #7e829e;
+  color: $text-secondary;
   font-size: 12px;
   display: -webkit-box;
   -webkit-line-clamp: 2;

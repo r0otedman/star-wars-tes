@@ -3,6 +3,7 @@ import { Dropdown } from "shared/ui/Dropdown/Dropdown";
 import styles from "./Profile.module.scss";
 import AppLink from "shared/ui/AppLink/AppLink";
 import clsx from "clsx";
+import { memo } from "react";
 
 const ProfileIcon = () => {
   return (
@@ -28,8 +29,8 @@ const ProfileContent = () => {
   );
 };
 
-const Profile = () => {
+const Profile = memo(() => {
   return <Dropdown content={<ProfileContent />} trigger={<ProfileIcon />} />;
-};
+});
 
 export default Profile;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import styles from "./Dropdown.module.scss";
 import { clsx } from "clsx";
 
@@ -8,16 +8,50 @@ type DropdownProps = {
   className?: string;
 };
 
-export const Dropdown = ({ trigger, content }: DropdownProps) => {
+export const Dropdown = ({ trigger, content, className }: DropdownProps) => {
   const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const toggle = () => setOpen((prev) => !prev);
+  const close = () => setOpen(false);
+
+  // Закрытие при клике вне компонента
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
+        close();
+      }
+    };
+
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open]);
 
   return (
-    <div className={styles.container} onClick={toggle}>
-      <div className={styles.trigger}>{trigger}</div>
-      <div className={clsx(styles.content, open && styles.open)}>{content}</div>
-      <div className={clsx(styles.overlay, open && styles.openOverlay)}></div>
-    </div>
+    <>
+      <div className={clsx(styles.container, className)} ref={containerRef}>
+        <div className={styles.trigger} onClick={toggle}>
+          {trigger}
+        </div>
+        <div
+          className={clsx(styles.content, open && styles.open)}
+          onClick={(e) => e.stopPropagation()}
+        >
+          {content}
+        </div>
+      </div>
+      <div
+        className={clsx(styles.overlay, open && styles.openOverlay)}
+        onClick={close}
+      ></div>
+    </>
   );
 };

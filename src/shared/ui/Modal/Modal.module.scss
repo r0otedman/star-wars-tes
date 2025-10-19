@@ -18,15 +18,14 @@
 
 /* Центрированный лист с анимацией похожей на MUI: fade + scale */
 .paper {
-  background: #fff;
-  border-radius: 8px;
+  background: $bg-color;
+  border-radius: 4px;
   max-width: 720px;
-  width: calc(100% - 48px);
   max-height: 90vh;
   transform: scale(0.95);
   opacity: 0;
-  transition: transform 220ms cubic-bezier(0.16, 0.84, 0.44, 1),
-    opacity 200ms linear;
+  transition: transform 320ms cubic-bezier(0.16, 0.84, 0.44, 1),
+    opacity 300ms linear;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.16);
   will-change: transform, opacity;
 }
@@ -44,25 +43,8 @@
   opacity: 0;
 }
 
-/* Внутренние области */
-.header {
-  padding: 16px 20px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .content {
   padding: 16px 20px;
-}
-
-.footer {
-  padding: 12px 20px;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
-  display: flex;
-  justify-content: flex-end;
-  gap: 8px;
 }
 
 /* Упрощённый visually-hidden для accessibility */

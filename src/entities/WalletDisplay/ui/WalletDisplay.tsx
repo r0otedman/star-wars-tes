@@ -4,9 +4,20 @@ import { Dropdown } from "shared/ui/Dropdown/Dropdown";
 import styles from "./WalletDisplay.module.scss";
 import SolIcon from "shared/icons/sol.svg?react";
 import UsdcIcon from "shared/icons/usdc.svg?react";
+import Button from "shared/ui/Button/Button";
+import { memo } from "react";
 
 const WalletDisplayContent = () => {
-  return <div>1111</div>;
+  return (
+    <div className={styles.walletDisplayContent}>
+      <Button className={styles.walletDisplayContentBtn} variant="confirm">
+        deposit
+      </Button>
+      <Button className={styles.walletDisplayContentBtn} variant="cancel">
+        widthdraw
+      </Button>
+    </div>
+  );
 };
 
 const WalletDisplayTrigger = () => {
@@ -26,13 +37,13 @@ const WalletDisplayTrigger = () => {
   );
 };
 
-const WalletDisplay = () => {
+const WalletDisplay = memo(() => {
   return (
     <Dropdown
       content={<WalletDisplayContent />}
       trigger={<WalletDisplayTrigger />}
     />
   );
-};
+});
 
 export default WalletDisplay;

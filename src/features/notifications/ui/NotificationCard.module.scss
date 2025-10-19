@@ -1,0 +1,31 @@
+.notificationCard {
+  display: flex;
+  padding: 12px;
+  padding-left: 16px;
+  border: $border;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.notificationCardText {
+  max-width: 160px;
+  color: $text-secondary;
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.notificationCardTitle {
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.notificationCardContent {
+  display: flex;
+}

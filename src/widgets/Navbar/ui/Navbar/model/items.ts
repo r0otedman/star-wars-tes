@@ -6,11 +6,10 @@ export interface NavbarItemType {
 }
 
 export const NavbarItemList: NavbarItemType[] = [
-  { path: RoutePath.home_page, text: "Trading" },
-  { path: RoutePath.home_page, text: "Pulse" },
+  { path: RoutePath.home_page, text: "DEX" },
   { path: RoutePath.home_page, text: "Fundamentals" },
-  { path: RoutePath.home_page, text: "Trading Portfolio" },
+  { path: RoutePath.home_page, text: "Portfolio" },
   { path: RoutePath.home_page, text: "Earn" },
-  { path: RoutePath.profile, text: "Profile" },
   { path: RoutePath.home_page, text: "Rewards" },
+  { path: RoutePath.home_page, text: "AI" },
 ];

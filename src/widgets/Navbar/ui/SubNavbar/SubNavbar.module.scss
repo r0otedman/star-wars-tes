@@ -1,0 +1,55 @@
+.subNavbar {
+  height: 36px;
+  border-top: $border;
+  border-bottom: $border;
+  margin-bottom: 15px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.trackWrapper {
+  display: flex;
+  animation: scroll 25s linear infinite;
+  width: max-content;
+}
+
+.track {
+  display: flex;
+  gap: 8px;
+  white-space: nowrap;
+  padding-right: 100vw;
+}
+
+.blockAdBtn {
+  background-color: $bg-dark;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  padding-right: 6px;
+  font-size: 14px;
+  color: $text-secondary;
+  border-left: $border;
+}
+
+.blockAdText {
+  margin-right: 4px;
+}
+
+.blockAdIcon {
+  cursor: pointer;
+  min-width: 18px;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

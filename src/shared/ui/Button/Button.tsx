@@ -5,12 +5,21 @@ import { ReactNode } from "react";
 interface ButtonProps {
   className?: string;
   children: ReactNode;
-  variant: "buy" | "sell" | "cancel" | "confirm";
+  onClick?: any;
+  variant?: "buy" | "sell" | "cancel" | "confirm";
 }
 
-const Button: React.FC<ButtonProps> = ({ className, children, variant }) => {
+const Button: React.FC<ButtonProps> = ({
+  className,
+  children,
+  variant,
+  onClick,
+}) => {
   return (
-    <div className={clsx(styles.button, className, styles[variant])}>
+    <div
+      onClick={onClick}
+      className={clsx(styles.button, className, styles[variant])}
+    >
       {children}
     </div>
   );

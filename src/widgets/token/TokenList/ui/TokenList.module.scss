@@ -3,10 +3,10 @@
 }
 
 .listHeader {
-  color: #7e829e;
+  color: $text-secondary;
   font-size: 12px;
-  background-color: #191f28;
-  border: 0.5px solid #313449;
+  background-color: $bg-color;
+  border: $border;
   padding: 10px 15px;
   display: grid;
   grid-template-columns: 280px 1fr 1fr;
@@ -17,7 +17,7 @@
 }
 
 .list {
-  height: calc(100vh - 142px);
+  height: calc(100vh - 190px);
   overflow-y: auto;
 }
 
@@ -27,11 +27,11 @@
 
 .scrollable::-webkit-scrollbar-thumb {
   // background: linear-gradient(180deg, #6a11cb, #2575fc);
-  background-color: #313449;
+  background-color: $border-color;
   border-radius: 4px;
 }
 
 .scrollable::-webkit-scrollbar-track {
-  background: #191f28;
+  background: $bg-color;
   border: none;
 }

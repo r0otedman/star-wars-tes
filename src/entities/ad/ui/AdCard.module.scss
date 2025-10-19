@@ -1,0 +1,54 @@
+.adCard {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  padding-right: 16px;
+  height: 28px;
+  background-color: $bg-color;
+  border: $border;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: $bg-hover;
+  }
+}
+
+.adCardimgWrapper {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.neonBox {
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 1px #00ffff, 0 0 4px #00ffff, 0 0 6px #00ffff,
+    0 0 10px #00ffff;
+  animation: flicker 2s infinite;
+}
+
+@keyframes flicker {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 1px #00ffff, 0 0 3px #00ffff, 0 0 6px #00ffff,
+      0 0 10px #00ffff;
+  }
+
+  20%,
+  24%,
+  55% {
+    opacity: 0.3;
+    box-shadow: none;
+  }
+}

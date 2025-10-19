@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
+
 import styles from "./Modal.module.scss";
+import Portal from "../Portal/Portal";
 
 type Props = {
   open: boolean;
@@ -82,45 +83,32 @@ export function Modal({
 
   if (!mounted) return null;
 
-  return createPortal(
-    <div
-      className={`${styles.backdrop} ${
-        open && !closing ? styles.backdropOpen : ""
-      }`}
-      role="presentation"
-      onMouseDown={(e) => {
-        if (!closeOnBackdrop) return;
-        if (e.target === e.currentTarget) onClose();
-      }}
-      ref={containerRef}
-    >
+  return (
+    <Portal>
       <div
-        role="dialog"
-        aria-modal="true"
-        aria-label={ariaLabel ?? title ?? "Dialog"}
-        tabIndex={-1}
-        className={`${styles.paper} ${
-          open && !closing ? styles.paperOpen : ""
-        } ${closing ? styles.paperClosing : ""}`}
-        onMouseDown={(e) => e.stopPropagation()}
+        className={`${styles.backdrop} ${
+          open && !closing ? styles.backdropOpen : ""
+        }`}
+        role="presentation"
+        onMouseDown={(e) => {
+          if (!closeOnBackdrop) return;
+          if (e.target === e.currentTarget) onClose();
+        }}
+        ref={containerRef}
       >
-        <div className={styles.header}>
-          <div>
-            <strong>{title}</strong>
-          </div>
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={ariaLabel ?? title ?? "Dialog"}
+          tabIndex={-1}
+          className={`${styles.paper} ${
+            open && !closing ? styles.paperOpen : ""
+          } ${closing ? styles.paperClosing : ""}`}
+          onMouseDown={(e) => e.stopPropagation()}
+        >
+          <div className={styles.content}>{children}</div>
         </div>
-
-        <div className={styles.content}>{children}</div>
-
-        <div className={styles.footer}>
-          <button onClick={onClose}>Close</button>
-        </div>
-
-        <span className={styles.visuallyHidden} aria-hidden>
-          {ariaLabel ?? title ?? ""}
-        </span>
       </div>
-    </div>,
-    document.body
+    </Portal>
   );
 }

@@ -3,13 +3,13 @@ import styles from "./TokenListTabs.module.scss";
 import { useGetTokensQuery } from "app/api/swapi";
 
 const tabs = [
-  { label: "Trending", value: "Trending" },
-  { label: "Top 100", value: "Top 100" },
-  { label: "New", value: "New" },
+  { label: "All DEXES", value: "All DEXES" },
+  { label: "Pulse", value: "Pulse" },
+  { label: "Random Tokens", value: "Random Tokens" },
 ];
 
 const TokenListTabs = () => {
-  const [activeTab, setActiveTab] = useState("Trending");
+  const [activeTab, setActiveTab] = useState("All DEXES");
 
   const { refetch } = useGetTokensQuery();
 

@@ -7,7 +7,7 @@
 .tabsListItem {
   margin-left: 10px;
   font-size: 20px;
-  color: #7e829e;
+  color: $text-secondary;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -16,5 +16,5 @@
   }
 }
 .active {
-  color: #fff;
+  color: $white;
 }

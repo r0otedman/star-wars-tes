@@ -1,6 +1,5 @@
 .container {
   position: relative;
-  cursor: pointer;
 }
 
 .overlay {
@@ -24,16 +23,16 @@
 
 .content {
   position: absolute;
-  border: 0.5px solid #313449;
+  border: $border;
   z-index: 1000;
   right: -1px;
-  top: 36px;
+  top: 40px;
   white-space: nowrap;
   border-radius: 4px;
   opacity: 0;
   transition: 0.3s;
   pointer-events: none;
-  background-color: #191f28;
+  background-color: $bg-color;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
   display: flex;
 }
@@ -41,4 +40,8 @@
 .open {
   opacity: 1;
   pointer-events: all;
+}
+
+.trigger {
+  cursor: pointer;
 }

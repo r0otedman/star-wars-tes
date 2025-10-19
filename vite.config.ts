@@ -14,4 +14,11 @@ export default defineConfig({
       entities: path.resolve(__dirname, "./src/entities"),
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "@/app/styles/variables/variables.scss" as *;`,
+      },
+    },
+  },
 });
