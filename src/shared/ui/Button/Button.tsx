@@ -6,13 +6,13 @@ interface ButtonProps {
   className?: string;
   children: ReactNode;
   onClick?: any;
-  variant?: "buy" | "sell" | "cancel" | "confirm";
+  variant: "buy" | "sell" | "cancel" | "confirm";
 }
 
 const Button: React.FC<ButtonProps> = ({
   className,
   children,
-  variant,
+  variant = "cancel",
   onClick,
 }) => {
   return (

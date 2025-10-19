@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Token } from "../entities/token/model/types";
+import { Token } from "entities/token/model/types";
 
 const API_URL = "http://localhost:3000";
 

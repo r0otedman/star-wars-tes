@@ -21,7 +21,7 @@ const NotificationsContent = memo(({ notifications }: any) => {
         <div className={styles.clearBtn}>Clear All</div>
       </div>
       <div>
-        {notifications.map((notification) => (
+        {notifications.map((notification: any) => (
           <NotificationCard notification={notification} />
         ))}
       </div>
@@ -29,7 +29,7 @@ const NotificationsContent = memo(({ notifications }: any) => {
   );
 });
 
-const NotificationsTrigger = memo(({ notifications }) => {
+const NotificationsTrigger = memo(({ notifications }: any) => {
   console.log(notifications.length);
   return (
     <div className={styles.notificationsTrigger}>
