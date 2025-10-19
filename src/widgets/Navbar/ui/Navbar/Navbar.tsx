@@ -13,15 +13,6 @@ import { Modal } from "shared/ui/Modal/Modal";
 export const Navbar = memo(() => {
   const [open, setOppen] = useState(false);
 
-  let dep = false;
-
-  const openDep = () => {
-    dep = true;
-    setOppen(true);
-  };
-
-  console.log(dep);
-
   return (
     <div className={styles.navbar}>
       <div style={{ fontSize: "32px", marginRight: "20px" }}>LOGO</div>
@@ -30,7 +21,11 @@ export const Navbar = memo(() => {
       ))}
       <div className={styles.navbarControls}>
         <SearchButton />
-        <Button onClick={openDep} className={styles.depBtn} variant="confirm">
+        <Button
+          onClick={() => setOppen(true)}
+          className={styles.depBtn}
+          variant="confirm"
+        >
           Deposit
         </Button>
         <Favorites />

@@ -11,15 +11,15 @@
 
 .trackWrapper {
   display: flex;
-  animation: scroll 25s linear infinite;
+  animation: scroll 40s linear infinite;
   width: max-content;
 }
 
 .track {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   white-space: nowrap;
-  padding-right: 100vw;
+  padding-right: 15vw;
 }
 
 .blockAdBtn {
