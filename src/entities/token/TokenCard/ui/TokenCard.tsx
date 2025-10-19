@@ -1,9 +1,9 @@
 import { Token } from "../../model/types";
 import styles from "./TokenCard.module.scss";
-import AvatarPlaceholder from "../../../../shared/assets/avatar-paceholder.jpg";
+import AvatarPlaceholder from "shared/assets/avatar-paceholder.jpg";
 import { PiCopySimple } from "react-icons/pi";
-import useCopyToClipboard from "../../../../shared/lib/useCopyToClipboard";
-import { getShortNumber } from "../../../../shared/lib/getShortNumber";
+import useCopyToClipboard from "shared/lib/useCopyToClipboard";
+import { getShortNumber } from "shared/lib/getShortNumber";
 
 type TokenCardProps = {
   token: Token;

@@ -7,4 +7,6 @@ export const COLORS = {
   red: "#f87171",
   darkBg: "#15161b",
   focus: "#3F4650",
+  blue: "#60a5fa",
+  fiol: "#a78bfa",
 };

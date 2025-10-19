@@ -1,7 +1,7 @@
 import { LuUserRoundCog } from "react-icons/lu";
-import { Dropdown } from "../../../shared/ui/Dropdown/Dropdown";
+import { Dropdown } from "shared/ui/Dropdown/Dropdown";
 import styles from "./Profile.module.scss";
-import AppLink from "../../../shared/ui/AppLink/AppLink";
+import AppLink from "shared/ui/AppLink/AppLink";
 import clsx from "clsx";
 
 const ProfileIcon = () => {
@@ -29,11 +29,7 @@ const ProfileContent = () => {
 };
 
 const Profile = () => {
-  return (
-    <div>
-      <Dropdown content={<ProfileContent />} trigger={<ProfileIcon />} />
-    </div>
-  );
+  return <Dropdown content={<ProfileContent />} trigger={<ProfileIcon />} />;
 };
 
 export default Profile;

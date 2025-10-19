@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from "react";
 import styles from "./TokenListTabs.module.scss";
-import { useGetTokensQuery } from "../../../../api/swapi";
+import { useGetTokensQuery } from "app/api/swapi";
 
 const tabs = [
   { label: "Trending", value: "Trending" },

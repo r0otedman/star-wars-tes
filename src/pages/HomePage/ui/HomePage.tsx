@@ -1,10 +1,10 @@
-import { useGetTokensQuery } from "../../../api/swapi";
+import { useGetTokensQuery } from "app/api/swapi";
 import TokenList from "../../../widgets/token/TokenList";
 import TokenListTabs from "../../../widgets/token/TokenListTabs";
 import styles from "./HomePage.module.scss";
 
 export default function HomePage() {
-  const { data, isLoading, isFetching, error } = useGetTokensQuery();
+  const { data, isLoading, error } = useGetTokensQuery();
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading tokens</div>;
@@ -13,7 +13,6 @@ export default function HomePage() {
     <div className={styles.homePage}>
       <TokenListTabs />
       <TokenList data={data ?? []} />
-      {isFetching && <p>Refreshing...</p>}
     </div>
   );
 }

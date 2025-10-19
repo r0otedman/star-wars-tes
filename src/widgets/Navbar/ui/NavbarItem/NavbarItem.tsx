@@ -1,5 +1,5 @@
 import { memo } from "react";
-import AppLink from "../../../../shared/ui/AppLink/AppLink";
+import AppLink from "shared/ui/AppLink/AppLink";
 import { NavbarItemType } from "../Navbar/model/items";
 import styles from "./NavbarIten.module.scss";
 

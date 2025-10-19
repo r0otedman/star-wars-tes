@@ -15,8 +15,9 @@ export const Dropdown = ({ trigger, content }: DropdownProps) => {
 
   return (
     <div className={styles.container} onClick={toggle}>
-      {trigger}
+      <div className={styles.trigger}>{trigger}</div>
       <div className={clsx(styles.content, open && styles.open)}>{content}</div>
+      <div className={clsx(styles.overlay, open && styles.openOverlay)}></div>
     </div>
   );
 };

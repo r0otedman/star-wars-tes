@@ -2,7 +2,11 @@ import styles from "./Navbar.module.scss";
 import { NavbarItemList } from "./model/items";
 import NavbarItem from "../NavbarItem/NavbarItem";
 import { memo } from "react";
-import Profile from "../../../../entities/profile";
+import Profile from "entities/profile";
+import WalletDisplay from "entities/WalletDisplay";
+import Notifications from "features/notifications";
+import Favorites from "features/favorites/ui/Favorites";
+import Button from "shared/ui/Button/Button";
 
 export const Navbar = memo(() => {
   return (
@@ -22,46 +26,12 @@ export const Navbar = memo(() => {
         >
           search
         </div>
-        <div
-          style={{
-            width: "80px",
-            height: "32px",
-            backgroundColor: "green",
-            borderRadius: "9999px",
-          }}
-        >
-          dep
-        </div>
-        <div
-          style={{
-            width: "32px",
-            height: "32px",
-            backgroundColor: "blue",
-            borderRadius: "50%",
-          }}
-        >
-          w
-        </div>
-        <div
-          style={{
-            width: "32px",
-            height: "32px",
-            backgroundColor: "blue",
-            borderRadius: "50%",
-          }}
-        >
-          n
-        </div>
-        <div
-          style={{
-            width: "152px",
-            height: "32px",
-            backgroundColor: "red",
-            borderRadius: "9999px",
-          }}
-        >
-          wallet
-        </div>
+        <Button className={styles.depBtn} variant="confirm">
+          Deposit
+        </Button>
+        <Favorites />
+        <Notifications />
+        <WalletDisplay />
         <Profile />
       </div>
     </div>

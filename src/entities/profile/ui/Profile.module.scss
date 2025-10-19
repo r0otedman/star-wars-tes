@@ -7,6 +7,9 @@
   justify-content: center;
   background-color: #191f28;
   cursor: pointer;
+  &:hover {
+    background-color: #212832;
+  }
 }
 
 .profileContent {
@@ -19,6 +22,11 @@
   align-items: center;
   padding-left: 12px;
   padding-right: 12px;
+  transition: 0.3s;
+  border-radius: 4px;
+  &:hover {
+    background-color: #212832;
+  }
 }
 
 .logout {

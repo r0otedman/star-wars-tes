@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { swapiApi } from "../../api/swapi";
+import { swapiApi } from "app/api/swapi";
 import uiReducer from "./slices/uiSlice";
 
 export const store = configureStore({

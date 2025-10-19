@@ -1,0 +1,13 @@
+.favorites {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #191f28;
+  cursor: pointer;
+  border-radius: 50%;
+  &:hover {
+    background-color: #212832;
+  }
+}

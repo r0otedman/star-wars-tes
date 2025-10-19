@@ -1,4 +1,4 @@
-import { RoutePath } from "../../../../../shared/config/routeConfig";
+import { RoutePath } from "shared/config/routeConfig";
 
 export interface NavbarItemType {
   path: string;

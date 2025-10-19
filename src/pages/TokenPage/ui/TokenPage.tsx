@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useGetTokensByMintQuery } from "../../../api/swapi";
+import { useGetTokensByMintQuery } from "app/api/swapi";
 import styles from "./TokenPage.module.scss";
 
 const TokenPage = () => {
